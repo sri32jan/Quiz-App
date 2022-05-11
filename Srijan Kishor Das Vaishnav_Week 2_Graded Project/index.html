@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/h8k-design@latest/dist/index.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://cdn.jsdelivr.net/npm/h8k-design@latest/dist/assets/favicon.ico"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/h8k-components/dist/h8k-components/h8k-components.esm.js"
+      type="module"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/h8k-components/dist/h8k-components/h8k-components.js"
+    ></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="./js/quiz-logic.js"></script>
+  </head>
+
+  <body>
+    <!--HTML content goes here-->
+
+    <h8k-navbar header="Quiz App!"></h8k-navbar>
+
+    <div class="w-50 mx-auto mt-40" id="pre-quiz-view">
+      <div id="pre-quiz-instructions" data-testid="pre-quiz-instructions">
+        <ul>
+          <li><p>The quiz will consist of 7 questions</p></li>
+          <li><p>Each correct answer will give you 1 points</p></li>
+          <li><p>There is no negative marking applicable</p></li>
+          <li>
+            <p>
+              The answer will be validated once the submit button is clicked
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="my-40 layout-row justify-content-center">
+        <button
+          data-testid="start-button"
+          id="start-button"
+          onclick="startButtonHandle()"
+        >
+          Start Test
+        </button>
+      </div>
+    </div>
+
+    <div id="loader-view" data-testid="loader-view">
+      <section class="loader-container">
+        <span class="loader"></span>
+      </section>
+    </div>
+
+    <div id="quiz" class="container mx-auto w-50" data-testid="quiz">
+      <div class="row">
+        <pre id="question" data-testid="question"></pre>
+      </div>
+
+      <div
+        class="list-group"
+        id="options-container"
+        data-testid="options-container"
+      >
+        <div id="0" onclick="optionHandle(event)"></div>
+        <div id="1" onclick="optionHandle(event)"></div>
+        <div id="2" onclick="optionHandle(event)"></div>
+        <div id="3" onclick="optionHandle(event)"></div>
+      </div>
+
+      <div
+        class="d-flex justify-content-end align-items-center text-center mt-10"
+      >
+        <button
+          id="submit-button"
+          data-testid="submit-button"
+          onclick="submitHandle()"
+        >
+          Submit
+        </button>
+      </div>
+      <div>
+        <input type="hidden" id="question-id" value="0" />
+      </div>
+      <div>
+        <input type="hidden" id="score" value="0" />
+      </div>
+    </div>
+
+    <div id="score-div" style="text-align: center; display: none">
+      <h4>
+        Thank you for taking the Quiz... You have Scored
+        <span id="score-cont" style="color: red"></span>
+      </h4>
+    </div>
+
+    <!--Do Not Modify the hidden inputs below-->
+    <div>
+      <input
+        type="hidden"
+        id="current-question-id"
+        data-testid="current-question-id"
+      />
+    </div>
+    <!--Do Not Modify-->
+  </body>
+  <!-- HMR and test infrastructure - DO NOT EDIT -->
+  <script src="./bundle.js"></script>
+</html>
